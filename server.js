@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
     res.render('index')
 })
 
-app.get('kurivyan.kz/test', (req, res) => {
+app.get('test', (req, res) => {
     res.send('kurivyan.kz/test site open!')
 })
 
