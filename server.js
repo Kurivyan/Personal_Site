@@ -15,9 +15,13 @@ app.get('/', (req, res) => {
     res.render('index')
 })
 
-app.use('*', (req, res) => {
+app.get('/test', (req, res) => {
+    res.send('kurivyan.kz/test site open!')
+})
+
+app.get('*', (req, res) => {
     res.render('rout_error')
-});
+})
 
 app.listen(3000, () => {
     console.log(`Server Started !`)
