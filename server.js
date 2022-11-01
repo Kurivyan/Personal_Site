@@ -15,6 +15,10 @@ app.get('/', (req, res) => {
     res.render('index')
 })
 
+app.use(function(req, res) {
+    res.render('rout_error')
+    });
+
 app.listen(3000, () => {
     console.log(`Server Started !`)
 })
