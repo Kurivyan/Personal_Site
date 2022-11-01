@@ -11,15 +11,11 @@ app.use(express.static(path.join(__dirname, './src')))
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, './src/ejs/'))
 
-app.get('/data', (req, res) => {
+app.get('/', (req, res) => {
     res.render('index')
 })
 
-app.get('/test', (req, res) => {
-    res.send('kurivyan.kz/test site open!')
-})
-
-app.get('/*', (req, res) => {
+app.get('*', (req, res) => {
     res.render('rout_error')
 })
 
