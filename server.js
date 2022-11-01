@@ -19,7 +19,7 @@ app.get('/test', (req, res) => {
     res.send('kurivyan.kz/test site open!')
 })
 
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
     res.render('rout_error')
 })
 
