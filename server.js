@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, './src')))
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, './src/ejs/'))
 
-app.get('/', (req, res) => {
+app.get('/data', (req, res) => {
     res.render('index')
 })
 
