@@ -16,10 +16,9 @@ app.use(
       store: MongoStore.create({ mongoUrl: 'mongodb://kurivyan.kz:27017'})
     })
 )
-
-const { MongoClient, ServerApiVersion } = require('mongodb'); //MongoDb Connection
-const uri = "mongodb://kurivyan.kz:27017"; 
-const mongoClient = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+const { MongoClient } = require ("mongodb") //MongoDb Connection
+const uri = "mongodb://kurivyan.kz:27017";
+const client = new MongoClient(uri);
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
@@ -31,6 +30,25 @@ app.set('views', path.join(__dirname, './src/ejs/'))
 
 app.get('/', (req, res) => {
     res.render('index')
+})
+
+app.post('/test', (req, res) => {
+    var message_content = req.body.message_body
+    var message_time = new Date();
+
+    var inputSchema = {
+        "text" : message_content,
+        "time" : message_time
+    }
+
+    async function abc() {
+        let db = client.db('tempbase');
+        let coll = db.collection('contact');
+               
+        await coll.insertOne(inputSchema);
+        res.redirect('/')
+    }
+    abc()
 })
 
 app.get('*', (req, res) => {
