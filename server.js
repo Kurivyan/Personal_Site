@@ -3,6 +3,22 @@ const bodyParser = require('body-parser')
 const path = require('path')
 const app = express()
 
+app.use(
+    session({
+      secret : 'secretkey',
+      key : 'seed',
+      cookie : {
+          httpOnly : true,
+          maxAge : null
+      },
+      store: MongoStore.create({ mongoUrl: 'mongodb://86.107.199.106:27017'})
+    })
+)
+
+const { MongoClient, ServerApiVersion } = require('mongodb'); //MongoDb Connection
+const uri = "mongodb://86.107.199.106:27017"; 
+const mongoClient = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
