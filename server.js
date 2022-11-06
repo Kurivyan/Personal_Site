@@ -13,12 +13,12 @@ app.use(
           httpOnly : true,
           maxAge : null
       },
-      store: MongoStore.create({ mongoUrl: 'mongodb://86.107.199.106:27017'})
+      store: MongoStore.create({ mongoUrl: 'mongodb://kurivyan.kz:27017'})
     })
 )
 
 const { MongoClient, ServerApiVersion } = require('mongodb'); //MongoDb Connection
-const uri = "mongodb://86.107.199.106:27017"; 
+const uri = "mongodb://kurivyan.kz:27017"; 
 const mongoClient = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
 app.use(bodyParser.urlencoded({ extended: true }))
