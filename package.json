@@ -20,12 +20,12 @@
   "homepage": "https://github.com/Kurivyan/Personal_Site#readme",
   "dependencies": {
     "body-parser": "^1.20.1",
-    "bootstrap": "^5.2.2",
     "connect-mongo": "^4.6.0",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
     "mongodb": "^4.11.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "util": "^0.12.5"
   }
 }
