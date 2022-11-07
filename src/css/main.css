@@ -1,9 +1,11 @@
 * {
     margin: 0 0 0 0;
-    color: black;
+    color: rgb(240, 240, 240);
     font-size: 8pt;
+    background-color: rgb(255, 173, 73);
 }
 
-.container form {
-    font-size: 10pt;
+.hello {
+    text-align: center;
+    padding: 35px 0px 35px 0px;
 }
