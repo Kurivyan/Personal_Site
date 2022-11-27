@@ -24,6 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 app.use(express.static(path.join(__dirname, './src')))
+app.use(express.static(path.join(__dirname, './src/coffee')))
 
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, './src/ejs/'))
@@ -49,6 +50,10 @@ app.post('/test', (req, res) => {
         res.redirect('/')
     }
     abc()
+})
+
+app.get('/damir', (req, res) => {
+    res.sendFile(path.join(__dirname,'/src/coffee/index.html'))
 })
 
 app.get('*', (req, res) => {
