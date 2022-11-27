@@ -24,13 +24,13 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 app.use(express.static(path.join(__dirname, './src')))
-app.use(express.static(path.join(__dirname, './src/coffee')))
+app.use(express.static(path.join(__dirname, './src/ejs')))
 
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, './src/ejs/'))
 
 app.get('/', (req, res) => {
-    res.render('index')
+    res.sendFile(path.join(__dirname,'/src/ejs/main.html'))
 })
 
 app.post('/test', (req, res) => {
@@ -53,7 +53,7 @@ app.post('/test', (req, res) => {
 })
 
 app.get('/damir', (req, res) => {
-    res.sendFile(path.join(__dirname,'/src/coffee/index.html'))
+    res.sendFile(path.join(__dirname,'/src/ejs/abcd.html'))
 })
 
 app.get('*', (req, res) => {
