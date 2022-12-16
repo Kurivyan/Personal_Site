@@ -56,6 +56,16 @@ app.get('/damir', (req, res) => {
     res.sendFile(path.join(__dirname,'/src/ejs/abcd.html'))
 })
 
+app.get('/hw/pdf', (req, res) => {
+    const file = `${__dirname}/src/upload/Презентация.pdf`
+    res.download(file)
+})
+
+app.get('/hw/pptx', (req, res) => {
+    const file = `${__dirname}/src/upload/Презентация.pptx`
+    res.download(file)
+})
+
 app.get('*', (req, res) => {
     res.render('rout_error')
 })
